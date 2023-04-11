@@ -4,10 +4,11 @@ import 'package:flame/experimental.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 
-import '../game/Game.dart';
+import '../Game/Game.dart';
+
 
 class Player extends SpriteAnimationComponent
-    with TapCallbacks, HasGameRef<EmberGame> {
+    with TapCallbacks, HasGameRef<EmberQuestGame> {
   int horizontalDirection = 0;
   Player({
     required super.position,
