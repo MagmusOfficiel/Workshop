@@ -3,7 +3,7 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/experimental.dart';
 
-import '../game/game.dart';
+import '../game/quest.dart';
 import '../objects/ground.dart';
 import '../objects/platform.dart';
 import '../objects/star.dart';

@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flame/game.dart';
 import 'package:workshop_gamejam/Utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:workshop_gamejam/Game/game.dart';
+import 'package:workshop_gamejam/Game/quest.dart';
 
 class VerifyEmailPage extends StatefulWidget {
   @override

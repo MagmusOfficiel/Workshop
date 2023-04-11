@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../game/game.dart';
+import '../game/quest.dart';
 
 class MainMenu extends StatelessWidget {
   // Reference to parent game.

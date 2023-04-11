@@ -4,7 +4,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 
-import '../game/game.dart';
+import '../game/quest.dart';
 import '../managers/segment_manager.dart';
 
 class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
