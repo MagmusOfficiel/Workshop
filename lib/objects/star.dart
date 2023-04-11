@@ -2,11 +2,10 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flutter/material.dart';
-
-import '../game/Game.dart';
+import '../Game/Game.dart';
 
 class Star extends SpriteComponent
-    with HasGameRef<EmberGame> {
+    with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
 

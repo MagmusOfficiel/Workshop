@@ -3,7 +3,7 @@ import 'package:flame/components.dart';
 import 'Game.dart';
 
 class Player extends SpriteAnimationComponent
-    with HasGameRef<EmberGame> {
+    with HasGameRef<EmberQuestGame> {
   Player({
     required super.position,
   }) : super(size: Vector2.all(64), anchor: Anchor.center);

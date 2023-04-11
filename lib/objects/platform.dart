@@ -1,10 +1,9 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-
-import 'package:workshop_gamejam/game/Game.dart';
+import '../Game/Game.dart';
 
 class Platform extends SpriteComponent
-  with HasGameRef<EmberGame> {
+  with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
   final Vector2 velocity = Vector2.zero();

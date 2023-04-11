@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:workshop_gamejam/Game/accueil.dart';
+import 'package:flame/game.dart';
 import 'package:workshop_gamejam/Utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:workshop_gamejam/Game/Game.dart';
 
 class VerifyEmailPage extends StatefulWidget {
   @override
@@ -54,7 +55,9 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
 
   @override
   Widget build(BuildContext context) => isEmailVerified
-      ? const Accueil()
+      ? const GameWidget<EmberQuestGame>.controlled(
+          gameFactory: EmberQuestGame.new,
+        )
       : Scaffold(
           appBar: AppBar(
             title: Text('Verifiy Email'),
