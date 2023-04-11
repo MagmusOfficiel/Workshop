@@ -40,7 +40,7 @@ dependencies:
   email_validator: ^2.1.17
   cloud_firestore: ^4.5.0
   google_sign_in: ^6.1.0
-
+  flame: ^1.7.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +67,7 @@ flutter:
   assets:
      - assets/images/Ydde.gif
      - assets/images/YddeF.gif
+     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
