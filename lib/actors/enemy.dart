@@ -1,11 +1,10 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-
-import '../game/Game.dart';
+import '../Game/Game.dart';
 
 class Enemy extends SpriteAnimationComponent
-    with HasGameRef<EmberGame> {
+    with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
 

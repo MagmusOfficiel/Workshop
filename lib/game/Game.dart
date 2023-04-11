@@ -1,24 +1,20 @@
 import 'dart:ui';
-
-import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
-import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:workshop_gamejam/actors/enemy.dart';
 import 'package:workshop_gamejam/objects/platform.dart';
-
 import '../managers/segment_manager.dart';
 import '../objects/ground.dart';
 import '../objects/star.dart';
 import '../actors/Player.dart';
 
-class EmberGame extends FlameGame with HasKeyboardHandlerComponents {
+class EmberQuestGame extends FlameGame with HasKeyboardHandlerComponents {
   late Player _ember;
   double objectSpeed = 0.0;
   late double lastBlockXPosition = 0.0;
   late UniqueKey lastBlockKey;
-  EmberGame();
+  EmberQuestGame();
 
   @override
   Color backgroundColor() {

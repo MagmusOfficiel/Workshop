@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "827440627828",
+    "project_id": "workshop-212f3",
+    "storage_bucket": "workshop-212f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827440627828:android:f2cf13000534bbe1d91121",
+        "android_client_info": {
+          "package_name": "com.example.workshop_gamejam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827440627828-il7rv5nrg39rub940hov666tmgrvkov8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACuIOjwVCGzcTk5G2IIAmdfjN8ygAMnYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827440627828-il7rv5nrg39rub940hov666tmgrvkov8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "827440627828-gfcaoeoftmtn8qap5ec4uagra57e0b9j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "workshop"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

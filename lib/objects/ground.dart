@@ -4,10 +4,10 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 
-import '../game/Game.dart';
+import '../Game/Game.dart';
 import '../managers/segment_manager.dart';
 
-class Ground extends SpriteComponent with HasGameRef<EmberGame> {
+class Ground extends SpriteComponent with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   final UniqueKey _blockKey = UniqueKey();
   double xOffset;
