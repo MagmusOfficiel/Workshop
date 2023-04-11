@@ -1,22 +1,23 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import '../Game/Game.dart';
 
-class Enemy extends SpriteAnimationComponent
+import '../game/game.dart';
+
+class WaterEnemy extends SpriteAnimationComponent
     with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
 
   final Vector2 velocity = Vector2.zero();
 
-  Enemy({
+  WaterEnemy({
     required this.gridPosition,
     required this.xOffset,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
 
   @override
-  void onLoad() {
+  Future<void> onLoad() async {
     animation = SpriteAnimation.fromFrameData(
       game.images.fromCache('water_enemy.png'),
       SpriteAnimationData.sequenced(
@@ -26,8 +27,8 @@ class Enemy extends SpriteAnimationComponent
       ),
     );
     position = Vector2(
-      (gridPosition.x * size.x) + xOffset + (size.x / 2),
-      game.size.y - (gridPosition.y * size.y) - (size.y / 2),
+      (gridPosition.x * size.x) + xOffset,
+      game.size.y - (gridPosition.y * size.y),
     );
     add(RectangleHitbox()..collisionType = CollisionType.passive);
     add(
@@ -46,7 +47,9 @@ class Enemy extends SpriteAnimationComponent
   void update(double dt) {
     velocity.x = game.objectSpeed;
     position += velocity * dt;
-    if (position.x < -size.x) removeFromParent();
+    if (position.x < -size.x || game.health <= 0) {
+      removeFromParent();
+    }
     super.update(dt);
   }
 }

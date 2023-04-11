@@ -2,10 +2,10 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flutter/material.dart';
-import '../Game/Game.dart';
 
-class Star extends SpriteComponent
-    with HasGameRef<EmberQuestGame> {
+import '../game/game.dart';
+
+class Star extends SpriteComponent with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
 
@@ -17,7 +17,7 @@ class Star extends SpriteComponent
   }) : super(size: Vector2.all(64), anchor: Anchor.center);
 
   @override
-  void onLoad() {
+  Future<void> onLoad() async {
     final starImage = game.images.fromCache('star.png');
     sprite = Sprite(starImage);
     position = Vector2(
@@ -42,7 +42,9 @@ class Star extends SpriteComponent
   void update(double dt) {
     velocity.x = game.objectSpeed;
     position += velocity * dt;
-    if (position.x < -size.x) removeFromParent();
+    if (position.x < -size.x || game.health <= 0) {
+      removeFromParent();
+    }
     super.update(dt);
   }
 }

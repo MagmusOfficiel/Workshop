@@ -4,26 +4,27 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 
-import '../Game/Game.dart';
+import '../game/game.dart';
 import '../managers/segment_manager.dart';
 
-class Ground extends SpriteComponent with HasGameRef<EmberQuestGame> {
+class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
-  final UniqueKey _blockKey = UniqueKey();
   double xOffset;
 
+  final UniqueKey _blockKey = UniqueKey();
   final Vector2 velocity = Vector2.zero();
 
-  Ground({
+  GroundBlock({
     required this.gridPosition,
     required this.xOffset,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
 
   @override
-  void onLoad() {
+  Future<void> onLoad() async {
     final groundImage = game.images.fromCache('ground.png');
     sprite = Sprite(groundImage);
-    position = Vector2((gridPosition.x * size.x) + xOffset,
+    position = Vector2(
+      (gridPosition.x * size.x) + xOffset,
       game.size.y - (gridPosition.y * size.y),
     );
     add(RectangleHitbox()..collisionType = CollisionType.passive);
@@ -37,17 +38,23 @@ class Ground extends SpriteComponent with HasGameRef<EmberQuestGame> {
   void update(double dt) {
     velocity.x = game.objectSpeed;
     position += velocity * dt;
+
     if (position.x < -size.x) {
       removeFromParent();
       if (gridPosition.x == 0) {
         game.loadGameSegments(
-            Random().nextInt(segments.length), game.lastBlockXPosition);
+          Random().nextInt(segments.length),
+          game.lastBlockXPosition,
+        );
       }
     }
     if (gridPosition.x == 9) {
       if (game.lastBlockKey == _blockKey) {
         game.lastBlockXPosition = position.x + size.x - 10;
       }
+    }
+    if (game.health <= 0) {
+      removeFromParent();
     }
 
     super.update(dt);
