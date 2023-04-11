@@ -11,7 +11,7 @@ import 'package:workshop_gamejam/objects/platform.dart';
 import '../managers/segment_manager.dart';
 import '../objects/ground.dart';
 import '../objects/star.dart';
-import 'Player.dart';
+import '../actors/Player.dart';
 
 class EmberGame extends FlameGame with HasKeyboardHandlerComponents {
   late Player _ember;
