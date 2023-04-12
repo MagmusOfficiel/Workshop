@@ -21,7 +21,7 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const title = "Yded";
+  static const title = "WorkSlime";
 
   @override
   Widget build(BuildContext context) {
