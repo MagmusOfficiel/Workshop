@@ -1,7 +1,8 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
-import '../game/quest.dart';
+import '../Game/quest.dart';
+
 
 class PlatformBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;

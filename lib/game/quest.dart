@@ -1,7 +1,6 @@
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-
 import '../actors/player.dart';
 import '../actors/enemy.dart';
 import '../managers/segment_manager.dart';

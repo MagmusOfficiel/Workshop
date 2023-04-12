@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../game/quest.dart';
+import '../Game/quest.dart';
+
 
 class GameOver extends StatelessWidget {
   // Reference to parent game.

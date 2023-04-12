@@ -2,8 +2,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/experimental.dart';
-
-import '../game/quest.dart';
+import '../Game/quest.dart';
 import '../objects/ground.dart';
 import '../objects/platform.dart';
 import '../objects/star.dart';
@@ -19,8 +18,9 @@ class EmberPlayer extends SpriteAnimationComponent
   final Vector2 fromAbove = Vector2(0, -1);
   final double gravity = 15;
   final double jumpSpeed = 600;
-  final double moveSpeed = 200;
-  final double terminalVelocity = 150;
+  final double moveSpeed = 55;
+  final double terminalVelocity = 100;
+
   int horizontalDirection = 0;
 
   bool hasJumped = false;
@@ -41,15 +41,16 @@ class EmberPlayer extends SpriteAnimationComponent
     add(
       CircleHitbox(),
     );
+
+    // Set the game reference.
+    game = gameRef as EmberQuestGame;
   }
 
   @override
   bool onTapUp(TapUpEvent event) {
     horizontalDirection = 0;
-    horizontalDirection += (event.continuePropagation ||
-        event.continuePropagation)
-        ? -1
-        : 0;
+    horizontalDirection +=
+        (event.continuePropagation || event.continuePropagation) ? -1 : 0;
     // horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyD) ||
     //     keysPressed.contains(LogicalKeyboardKey.arrowRight))
     //     ? 1
@@ -61,10 +62,14 @@ class EmberPlayer extends SpriteAnimationComponent
 
   @override
   void update(double dt) {
-    velocity.x = horizontalDirection * moveSpeed;
-    game.objectSpeed = 0;
+
+    // Ajouter la vitesse de déplacement horizontale au vecteur de vitesse de l'EmberPlayer
+    velocity.x = moveSpeed;
+
+    // Appliquer la vitesse de déplacement des objets à la position de l'EmberPlayer
+
     // Prevent ember from going backwards at screen edge.
-    if (position.x - 36 <= 0 && horizontalDirection < 0) {
+    if (position.x - 24 <= 0 && horizontalDirection < 0) {
       velocity.x = 0;
     }
     // Prevent ember from going beyond half screen.
@@ -106,6 +111,8 @@ class EmberPlayer extends SpriteAnimationComponent
     } else if (horizontalDirection > 0 && scale.x < 0) {
       flipHorizontally();
     }
+    game.objectSpeed = -velocity.x;
+    game.camera.position.x = position.x - (game.size.x / 6);
     super.update(dt);
   }
 
@@ -115,7 +122,7 @@ class EmberPlayer extends SpriteAnimationComponent
       if (intersectionPoints.length == 2) {
         // Calculate the collision normal and separation distance.
         final mid = (intersectionPoints.elementAt(0) +
-            intersectionPoints.elementAt(1)) /
+                intersectionPoints.elementAt(1)) /
             2;
 
         final collisionNormal = absoluteCenter - mid;
@@ -160,8 +167,8 @@ class EmberPlayer extends SpriteAnimationComponent
           repeatCount: 5,
         ),
       )..onComplete = () {
-        hitByEnemy = false;
-      },
+          hitByEnemy = false;
+        },
     );
   }
 }

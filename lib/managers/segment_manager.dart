@@ -1,5 +1,4 @@
 import 'package:flame/components.dart';
-
 import '../actors/enemy.dart';
 import '../objects/ground.dart';
 import '../objects/platform.dart';

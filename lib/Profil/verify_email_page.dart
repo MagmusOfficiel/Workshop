@@ -5,6 +5,9 @@ import 'package:workshop_gamejam/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:workshop_gamejam/Game/quest.dart';
 
+import '../overlays/game_over.dart';
+import '../overlays/main_menu.dart';
+
 class VerifyEmailPage extends StatefulWidget {
   @override
   _VerifyEmailPageState createState() => _VerifyEmailPageState();
@@ -55,12 +58,17 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
 
   @override
   Widget build(BuildContext context) => isEmailVerified
-      ? const GameWidget<EmberQuestGame>.controlled(
+      ? GameWidget<EmberQuestGame>.controlled(
           gameFactory: EmberQuestGame.new,
+          overlayBuilderMap: {
+            'MainMenu': (_, game) => MainMenu(game: game),
+            'GameOver': (_, game) => GameOver(game: game),
+          },
+          initialActiveOverlays: const ['MainMenu'],
         )
       : Scaffold(
           appBar: AppBar(
-            title: Text('Verifiy Email'),
+            title: const Text('Verifiy Email'),
           ),
           body: Padding(
             padding: const EdgeInsets.all(16),
