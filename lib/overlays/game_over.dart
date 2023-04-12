@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:workshop_gamejam/Game/quest.dart';
 
-import '../game/classement.dart';
+import 'package:workshop_gamejam/game/classement.dart';
 
 
 class GameOver extends StatelessWidget {
