@@ -48,7 +48,7 @@ class EmberPlayer extends SpriteAnimationComponent
   @override
   void update(double dt) {
     // Ajouter la vitesse de déplacement horizontale au vecteur de vitesse de l'EmberPlayer
-    velocity.x = 25;
+    velocity.x = 50;
 
     // Appliquer la vitesse de déplacement des objets à la position de l'EmberPlayer
 
