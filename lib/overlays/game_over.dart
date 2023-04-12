@@ -57,6 +57,16 @@ class GameOver extends StatelessWidget {
                   ),
                 ),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: whiteTextColor,
+                ),
+                child: const Icon(Icons.east,color: Colors.black,
+                ),
+              ),
             ],
           ),
         ),
