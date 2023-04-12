@@ -6,7 +6,6 @@ import '../Game/quest.dart';
 import '../objects/ground.dart';
 import '../objects/platform.dart';
 import '../objects/star.dart';
-import 'enemy.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
     with TapCallbacks, CollisionCallbacks, HasGameRef<EmberQuestGame> {
@@ -18,7 +17,7 @@ class EmberPlayer extends SpriteAnimationComponent
   final Vector2 fromAbove = Vector2(0, -1);
   final double gravity = 15;
   final double jumpSpeed = 600;
-  final double moveSpeed = 55;
+  final double moveSpeed = 20;
   final double terminalVelocity = 100;
 
   int horizontalDirection = 0;
@@ -146,29 +145,7 @@ class EmberPlayer extends SpriteAnimationComponent
       game.starsCollected++;
     }
 
-    if (other is WaterEnemy) {
-      hit();
-    }
     super.onCollision(intersectionPoints, other);
   }
 
-  // This method runs an opacity effect on ember
-  // to make it blink.
-  void hit() {
-    if (!hitByEnemy) {
-      game.health--;
-      hitByEnemy = true;
-    }
-    add(
-      OpacityEffect.fadeOut(
-        EffectController(
-          alternate: true,
-          duration: 0.1,
-          repeatCount: 5,
-        ),
-      )..onComplete = () {
-          hitByEnemy = false;
-        },
-    );
-  }
 }
