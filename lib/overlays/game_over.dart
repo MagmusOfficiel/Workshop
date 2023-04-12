@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:workshop_gamejam/Game/quest.dart';
 
+import '../game/classement.dart';
+
 
 class GameOver extends StatelessWidget {
   // Reference to parent game.
@@ -57,16 +59,43 @@ class GameOver extends StatelessWidget {
                   ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: whiteTextColor,
-                ),
-                child: const Icon(Icons.east,color: Colors.black,
-                ),
-              ),
+              SizedBox(height: 10,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return LeaderboardPage();
+                        },
+                      ));
+                    },
+                    icon: const Icon(
+                      Icons.bar_chart,
+                      color: Colors.black87,
+                    ),
+                    label: const Text(
+                      'Classement',
+                      style: TextStyle(color: Colors.black87),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                  ),
+                  SizedBox(width: 10),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: whiteTextColor,
+                    ),
+                    icon: const Text('Deconnexion',style: TextStyle(color: Colors.black87),),
+                    label: const Icon(Icons.east,color: Colors.black,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
