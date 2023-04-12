@@ -16,13 +16,7 @@ Le jeu se joue comme un jeu de plateforme classique en 2D, avec une seule comman
 
 # Objectif :
 
-L'objectif du jeu est de terminer tous les niveaux en atteignant la fin de chaque niveau en vie. Si vous tombez dans un précipice ou si vous êtes touché par un ennemi, vous perdrez une vie. Si vous perdez toutes vos vies, le jeu est terminé. Il y a des checkpoints dans chaque niveau pour vous aider à progresser, mais vous devrez être prudent pour les atteindre.
-
-# Graphismes : 
-Le jeu a des graphismes colorés et cartoon, avec des animations fluides pour les mouvements du personnage et des ennemis. Les différents niveaux ont des thèmes différents, allant de la jungle à la neige en passant par le désert, offrant une variété d'environnements visuels.
-
-En résumé, Slime Adventure est un jeu de plateforme en 2D amusant et stimulant qui met en vedette un personnage principal inhabituel et une variété d'obstacles pour surmonter. Avec des niveaux de plus en plus difficiles, le jeu offre un défi qui est d'être le plus haut classé du jeu.
-
+L'objectif du jeu est d'aller le plus loin possible en prenant les étoile sur votre chemin ! Plus vous avancer , plus le parcours est difficle. En capturant les étoiles vous monter dans le classement alors prêt ??!!
 
 
 # APK :
