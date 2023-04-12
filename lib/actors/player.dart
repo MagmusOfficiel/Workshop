@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/effects.dart';
-import 'package:flame/experimental.dart';
 import '../Game/quest.dart';
 import '../objects/ground.dart';
 import '../objects/platform.dart';
@@ -20,7 +18,7 @@ class EmberPlayer extends SpriteAnimationComponent
   final double gravity = 20;
   final double jumpSpeed = 700;
   final double moveSpeed = 50;
-  final double terminalVelocity = 1200;
+  final double terminalVelocity = 800;
 
   int horizontalDirection = 0;
 
@@ -58,11 +56,11 @@ class EmberPlayer extends SpriteAnimationComponent
     // Prevent ember from going backwards at screen edge.
     if (position.x - 36 <= 0 && horizontalDirection < 0) {
       velocity.x = 0;
+      game.objectSpeed = -moveSpeed;
     }
     // Prevent ember from going beyond half screen.
     if (position.x + 64 >= game.size.x / 2 && horizontalDirection > 0) {
       velocity.x = 0;
-      game.objectSpeed = -moveSpeed;
     }
 
     // Apply basic gravity.
@@ -93,7 +91,7 @@ class EmberPlayer extends SpriteAnimationComponent
     }
 
     game.objectSpeed = -velocity.x;
-    game.camera.position.x = position.x - (game.size.x / 4);
+    game.camera.position.x = position.x - (game.size.x / 4) + (size.x / 4);
     super.update(dt);
   }
 

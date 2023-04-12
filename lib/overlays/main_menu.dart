@@ -30,7 +30,7 @@ class MainMenu extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Ember Quest',
+                'WorkSlime',
                 style: TextStyle(
                   color: whiteTextColor,
                   fontSize: 24,
