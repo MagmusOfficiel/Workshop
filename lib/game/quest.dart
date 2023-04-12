@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flame/events.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
@@ -99,6 +101,10 @@ class EmberQuestGame extends FlameGame
   }
 
   void reset() {
+    FirebaseFirestore.instance
+        .collection('User')
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .update({'points': 0});
     starsCollected = 0;
     health = 3;
     initializeGame(false);

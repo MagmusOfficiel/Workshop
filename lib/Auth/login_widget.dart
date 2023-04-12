@@ -4,7 +4,6 @@ import 'package:workshop_gamejam/Utils/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:workshop_gamejam/Profil/forgot_password_page.dart';
-import 'google_in.dart';
 import 'package:workshop_gamejam/main.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -32,12 +31,12 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return SingleChildScrollView(child : Stack(
       children: [
         buildBackgroundImage(),
         buildForm(context),
       ],
-    );
+    ));
   }
 
   Widget buildBackgroundImage() {

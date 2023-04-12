@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -121,6 +123,14 @@ class EmberPlayer extends SpriteAnimationComponent
     }
 
     if (other is Star) {
+      FirebaseFirestore.instance
+          .collection('User')
+          .doc(FirebaseAuth.instance.currentUser?.uid)
+          .update({'points': FieldValue.increment(1)});
+      FirebaseFirestore.instance
+          .collection('User')
+          .doc(FirebaseAuth.instance.currentUser?.uid)
+          .update({'records': FieldValue.increment(1)});
       other.removeFromParent();
       game.starsCollected++;
     }

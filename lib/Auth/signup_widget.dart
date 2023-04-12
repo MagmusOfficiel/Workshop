@@ -34,7 +34,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return SingleChildScrollView( child : Stack(children: [
       SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -150,7 +150,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           ],
         ),
       )
-    ]);
+    ]));
   }
 
   Future signUp() async {
