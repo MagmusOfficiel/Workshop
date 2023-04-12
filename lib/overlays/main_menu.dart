@@ -48,7 +48,7 @@ class MainMenu extends StatelessWidget {
                     backgroundColor: whiteTextColor,
                   ),
                   child: const Text(
-                    'Play',
+                    'Jouer',
                     style: TextStyle(
                       fontSize: 40.0,
                       color: blackTextColor,
@@ -58,8 +58,7 @@ class MainMenu extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                '''Use WASD or Arrow Keys for movement.  Space bar to jump.
-                 Collect as many stars as you can and avoid enemies!''',
+                '''Commande : Appuie pour faire sauter un personnage!''',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: whiteTextColor,
