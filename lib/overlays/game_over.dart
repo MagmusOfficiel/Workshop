@@ -18,7 +18,7 @@ class GameOver extends StatelessWidget {
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          height: 200,
+          height: 300,
           width: 300,
           decoration: const BoxDecoration(
             color: blackTextColor,
@@ -39,7 +39,7 @@ class GameOver extends StatelessWidget {
               const SizedBox(height: 40),
               SizedBox(
                 width: 200,
-                height: 75,
+                height: 60,
                 child: ElevatedButton(
                   onPressed: () {
                     game.reset();
@@ -50,6 +50,26 @@ class GameOver extends StatelessWidget {
                   ),
                   child: const Text(
                     'Recommencer',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: blackTextColor,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
+              SizedBox(
+                width: 200,
+                height: 60,
+                child: ElevatedButton(
+                  onPressed: () {
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: whiteTextColor,
+                  ),
+                  child: const Text(
+                    'Classement',
                     style: TextStyle(
                       fontSize: 25.0,
                       color: blackTextColor,
