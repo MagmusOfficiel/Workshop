@@ -43,17 +43,6 @@ class Hud extends PositionComponent with HasGameRef<EmberQuestGame> {
       ),
     );
 
-    for (var i = 1; i <= game.health; i++) {
-      final positionX = 40 * i;
-      await add(
-        HeartHealthComponent(
-          heartNumber: i,
-          position: Vector2(positionX.toDouble(), 20),
-          size: Vector2.all(32),
-        ),
-      );
-    }
-
     return super.onLoad();
   }
 

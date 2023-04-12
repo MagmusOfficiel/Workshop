@@ -2,7 +2,6 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import '../actors/player.dart';
-import '../actors/enemy.dart';
 import '../managers/segment_manager.dart';
 import '../objects/ground.dart';
 import '../objects/platform.dart';
@@ -32,7 +31,6 @@ class EmberQuestGame extends FlameGame
       'heart_half.png',
       'heart.png',
       'star.png',
-      'water_enemy.png',
     ]);
     initializeGame(true);
   }
@@ -72,14 +70,6 @@ class EmberQuestGame extends FlameGame
         case Star:
           add(
             Star(
-              gridPosition: block.gridPosition,
-              xOffset: xPositionOffset,
-            ),
-          );
-          break;
-        case WaterEnemy:
-          add(
-            WaterEnemy(
               gridPosition: block.gridPosition,
               xOffset: xPositionOffset,
             ),
