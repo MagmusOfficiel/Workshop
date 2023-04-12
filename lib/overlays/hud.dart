@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import '../Game/quest.dart';
+import 'package:workshop_gamejam/Game/quest.dart';
 
 class Hud extends PositionComponent with HasGameRef<EmberQuestGame> {
   Hud({

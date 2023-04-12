@@ -5,8 +5,8 @@ import 'package:workshop_gamejam/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:workshop_gamejam/Game/quest.dart';
 
-import '../overlays/game_over.dart';
-import '../overlays/main_menu.dart';
+import 'package:workshop_gamejam/overlays/game_over.dart';
+import 'package:workshop_gamejam/overlays/main_menu.dart';
 
 class VerifyEmailPage extends StatefulWidget {
   @override

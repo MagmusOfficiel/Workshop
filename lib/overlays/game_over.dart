@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../Game/quest.dart';
+import 'package:workshop_gamejam/Game/quest.dart';
 
 
 class GameOver extends StatelessWidget {
@@ -19,7 +18,7 @@ class GameOver extends StatelessWidget {
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          height: 200,
+          height: 300,
           width: 300,
           decoration: const BoxDecoration(
             color: blackTextColor,

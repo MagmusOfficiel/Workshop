@@ -4,12 +4,12 @@ import 'package:flame/events.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import '../actors/player.dart';
-import '../managers/segment_manager.dart';
-import '../objects/ground.dart';
-import '../objects/platform.dart';
-import '../objects/star.dart';
-import '../overlays/hud.dart';
+import 'package:workshop_gamejam/actors/player.dart';
+import 'package:workshop_gamejam/managers/segment_manager.dart';
+import 'package:workshop_gamejam/objects/ground.dart';
+import 'package:workshop_gamejam/objects/platform.dart';
+import 'package:workshop_gamejam/objects/star.dart';
+import 'package:workshop_gamejam/overlays/hud.dart';
 
 class EmberQuestGame extends FlameGame
     with HasCollisionDetection, HasKeyboardHandlerComponents,TapCallbacks {

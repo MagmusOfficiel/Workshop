@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import '../Game/quest.dart';
-import '../managers/segment_manager.dart';
+import 'package:workshop_gamejam/Game/quest.dart';
+import 'package:workshop_gamejam/managers/segment_manager.dart';
 
 class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;

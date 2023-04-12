@@ -1,7 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-
-import '../Game/quest.dart';
+import 'package:workshop_gamejam/Game/quest.dart';
 
 
 class PlatformBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {

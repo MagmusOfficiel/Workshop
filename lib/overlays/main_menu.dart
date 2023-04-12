@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Game/quest.dart';
+import 'package:workshop_gamejam/Game/quest.dart';
 
 
 class MainMenu extends StatelessWidget {

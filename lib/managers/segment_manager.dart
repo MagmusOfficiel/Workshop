@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
-import '../objects/ground.dart';
-import '../objects/platform.dart';
-import '../objects/star.dart';
+import 'package:workshop_gamejam/objects/ground.dart';
+import 'package:workshop_gamejam/objects/platform.dart';
+import 'package:workshop_gamejam/objects/star.dart';
 
 class Block {
   // gridPosition position is always segment based X,Y.

@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import '../Game/quest.dart';
-import '../objects/ground.dart';
-import '../objects/platform.dart';
-import '../objects/star.dart';
+import 'package:workshop_gamejam/Game/quest.dart';
+import 'package:workshop_gamejam/objects/ground.dart';
+import 'package:workshop_gamejam/objects/platform.dart';
+import 'package:workshop_gamejam/objects/star.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<EmberQuestGame> {
@@ -47,7 +47,6 @@ class EmberPlayer extends SpriteAnimationComponent
 
   @override
   void update(double dt) {
-
     // Ajouter la vitesse de déplacement horizontale au vecteur de vitesse de l'EmberPlayer
     velocity.x = moveSpeed;
 
@@ -76,7 +75,7 @@ class EmberPlayer extends SpriteAnimationComponent
     }
 
     // Prevent ember from jumping to crazy fast.
-    velocity.y = velocity.y.clamp(-jumpSpeed, terminalVelocity/2);
+    velocity.y = velocity.y.clamp(-jumpSpeed, terminalVelocity / 2);
 
     // Adjust ember position.
     position += velocity * dt;
@@ -135,5 +134,4 @@ class EmberPlayer extends SpriteAnimationComponent
 
     super.onCollision(intersectionPoints, other);
   }
-
 }
