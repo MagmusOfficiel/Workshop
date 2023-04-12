@@ -8,17 +8,17 @@ import '../objects/platform.dart';
 import '../objects/star.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
-    with TapCallbacks, CollisionCallbacks, HasGameRef<EmberQuestGame> {
+    with CollisionCallbacks, HasGameRef<EmberQuestGame> {
   EmberPlayer({
     required super.position,
   }) : super(size: Vector2.all(64), anchor: Anchor.center);
 
   final Vector2 velocity = Vector2.zero();
   final Vector2 fromAbove = Vector2(0, -1);
-  final double gravity = 15;
-  final double jumpSpeed = 600;
-  final double moveSpeed = 20;
-  final double terminalVelocity = 100;
+  final double gravity = 20;
+  final double jumpSpeed = 700;
+  final double moveSpeed = 50;
+  final double terminalVelocity = 1200;
 
   int horizontalDirection = 0;
 
@@ -46,20 +46,6 @@ class EmberPlayer extends SpriteAnimationComponent
   }
 
   @override
-  bool onTapUp(TapUpEvent event) {
-    horizontalDirection = 0;
-    horizontalDirection +=
-        (event.continuePropagation || event.continuePropagation) ? -1 : 0;
-    // horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyD) ||
-    //     keysPressed.contains(LogicalKeyboardKey.arrowRight))
-    //     ? 1
-    //     : 0;
-
-    hasJumped = event.continuePropagation;
-    return true;
-  }
-
-  @override
   void update(double dt) {
 
     // Ajouter la vitesse de déplacement horizontale au vecteur de vitesse de l'EmberPlayer
@@ -68,7 +54,7 @@ class EmberPlayer extends SpriteAnimationComponent
     // Appliquer la vitesse de déplacement des objets à la position de l'EmberPlayer
 
     // Prevent ember from going backwards at screen edge.
-    if (position.x - 24 <= 0 && horizontalDirection < 0) {
+    if (position.x - 36 <= 0 && horizontalDirection < 0) {
       velocity.x = 0;
     }
     // Prevent ember from going beyond half screen.
@@ -90,7 +76,7 @@ class EmberPlayer extends SpriteAnimationComponent
     }
 
     // Prevent ember from jumping to crazy fast.
-    velocity.y = velocity.y.clamp(-jumpSpeed, terminalVelocity);
+    velocity.y = velocity.y.clamp(-jumpSpeed, terminalVelocity/2);
 
     // Adjust ember position.
     position += velocity * dt;
@@ -104,14 +90,8 @@ class EmberPlayer extends SpriteAnimationComponent
       removeFromParent();
     }
 
-    // Flip ember if needed.
-    if (horizontalDirection < 0 && scale.x > 0) {
-      flipHorizontally();
-    } else if (horizontalDirection > 0 && scale.x < 0) {
-      flipHorizontally();
-    }
     game.objectSpeed = -velocity.x;
-    game.camera.position.x = position.x - (game.size.x / 6);
+    game.camera.position.x = position.x - (game.size.x / 4);
     super.update(dt);
   }
 

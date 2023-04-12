@@ -1,4 +1,5 @@
 import 'package:flame/events.dart';
+import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import '../actors/player.dart';
@@ -9,7 +10,7 @@ import '../objects/star.dart';
 import '../overlays/hud.dart';
 
 class EmberQuestGame extends FlameGame
-    with HasCollisionDetection, HasKeyboardHandlerComponents {
+    with HasCollisionDetection, HasKeyboardHandlerComponents,TapCallbacks {
   EmberQuestGame();
 
   late EmberPlayer _ember;
@@ -101,5 +102,19 @@ class EmberQuestGame extends FlameGame
     starsCollected = 0;
     health = 3;
     initializeGame(false);
+  }
+
+  @override
+  bool onTapUp(TapUpEvent event) {
+    _ember.horizontalDirection = 0;
+    _ember.horizontalDirection +=
+    (event.continuePropagation || event.continuePropagation) ? -1 : 0;
+    // horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyD) ||
+    //     keysPressed.contains(LogicalKeyboardKey.arrowRight))
+    //     ? 1
+    //     : 0;
+
+    _ember.hasJumped = event.continuePropagation;
+    return true;
   }
 }
