@@ -1,6 +1,8 @@
 # workshop_gamejam
 
-Un jeu Game Jam
+Jeu pour la Game Jam
+
+--> Pour le mail de vérification de l'inscription, voir dans les SPAMS
 
 ## Getting Started
 
