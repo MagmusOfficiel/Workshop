@@ -30,7 +30,7 @@ class GameOver extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Game Over',
+                'Vous êtes mort!',
                 style: TextStyle(
                   color: whiteTextColor,
                   fontSize: 24,
@@ -49,9 +49,9 @@ class GameOver extends StatelessWidget {
                     backgroundColor: whiteTextColor,
                   ),
                   child: const Text(
-                    'Play Again',
+                    'Recommencer',
                     style: TextStyle(
-                      fontSize: 28.0,
+                      fontSize: 25.0,
                       color: blackTextColor,
                     ),
                   ),
