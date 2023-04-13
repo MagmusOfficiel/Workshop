@@ -10,6 +10,7 @@ import 'package:workshop_gamejam/objects/ground.dart';
 import 'package:workshop_gamejam/objects/platform.dart';
 import 'package:workshop_gamejam/objects/star.dart';
 import 'package:workshop_gamejam/overlays/hud.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class EmberQuestGame extends FlameGame
     with HasCollisionDetection, HasKeyboardHandlerComponents,TapCallbacks {
@@ -18,6 +19,7 @@ class EmberQuestGame extends FlameGame
   late EmberPlayer _ember;
   late double lastBlockXPosition = 0.0;
   late UniqueKey lastBlockKey;
+  final AudioPlayer audioPlayer = AudioPlayer();
 
   int starsCollected = 0;
   int health = 3;
@@ -82,8 +84,10 @@ class EmberQuestGame extends FlameGame
     }
   }
 
-  void initializeGame(bool loadHud) {
-    // Assume that size.x < 3200
+  void initializeGame(bool loadHud) async {
+    await audioPlayer.setSourceUrl('https://www.eddy-weber.fr/slime.mp3');
+    await audioPlayer.play(UrlSource('https://www.eddy-weber.fr/slime.mp3'));
+    // Assume that size.x < 320
     final segmentsToLoad = (size.x / 640).ceil();
     segmentsToLoad.clamp(0, segments.length);
 
@@ -100,7 +104,8 @@ class EmberQuestGame extends FlameGame
     }
   }
 
-  void reset() {
+  void reset()  {
+    audioPlayer.stop();
     FirebaseFirestore.instance
         .collection('User')
         .doc(FirebaseAuth.instance.currentUser?.uid)
@@ -115,10 +120,6 @@ class EmberQuestGame extends FlameGame
     _ember.horizontalDirection = 0;
     _ember.horizontalDirection +=
     (event.continuePropagation || event.continuePropagation) ? -1 : 0;
-    // horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyD) ||
-    //     keysPressed.contains(LogicalKeyboardKey.arrowRight))
-    //     ? 1
-    //     : 0;
 
     _ember.hasJumped = event.continuePropagation;
     return true;
